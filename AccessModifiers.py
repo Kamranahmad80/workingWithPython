@@ -9,37 +9,34 @@
 #  Write methods to display and modify the balance directly.
 #  Create an instance of BankAccount, access its attributes, and modify the balance outside the class.
 
-# Expected Output:
-#  You should be able to directly modify account_number and balance from outside the class.
-# The methods should work without restrictions.
 
-# class BankAccount:
-#     def __init__(self,account_number,account_holder,balance):
-#         self.account_number=account_number #public 
-#         self.account_holder=account_holder #public
-#         self.balance=balance #public
+class BankAccount:
+    def __init__(self,account_number,account_holder,balance):
+        self.account_number=account_number #public 
+        self.account_holder=account_holder #public
+        self.balance=balance #public
 
-#     def displayBalance(self):
-#         return f"Current Balance : {self.balance}"
+    def displayBalance(self):
+        return f"Current Balance : {self.balance}"
 
-#     def modifyBalance(self,new_balance):
-#         self.balance=new_balance
-#         return f"Balance updated : {self.balance}"
+    def modifyBalance(self,new_balance):
+        self.balance=new_balance
+        return f"Balance updated : {self.balance}"
 
 
-# account =BankAccount("12345678","Amir",1000)
+account =BankAccount("12345678","Amir",1000)
 
-# print("Initial Account Details:")
+print("Initial Account Details:")
 
-# print(f"Account Number:{account.account_number}")
-# print(f"Account Holder:{account.account_holder}")
-# print(account.displayBalance())
+print(f"Account Number:{account.account_number}")
+print(f"Account Holder:{account.account_holder}")
+print(account.displayBalance())
 
-# account.balance+=100
+account.balance+=100
 
 
-# account.modifyBalance(account.balance+10000)
-# print(account.displayBalance())
+account.modifyBalance(account.balance+10000)
+print(account.displayBalance())
 
 # Scenario 2: Protected Access Modifier
 
@@ -54,10 +51,6 @@
 # Implement the display_info() method.
 # Implement the GraduatedStudent subclass, adding the get_graduation_year() method to access the protected attributes.
 # Create instances of both classes and demonstrate attribute access within and outside the class.
-
-# Expected Output:
-# You can access the protected attributes from within the subclass.
-# Attempting to access protected attributes directly from outside the class should issue a warning or allow access with caution.
 
 class StudentInfo:
     def __init__(self,name,age):
@@ -95,10 +88,6 @@ print(student._name)
 # Implement the set_salary() and get_salary() methods to modify and access the private attributes.
 # Create an instance of Employee and demonstrate how private attributes can be accessed using the methods and what happens when you try to access them directly.
 
-# Expected Output:
-# Direct access to private attributes should raise an AttributeError.
-# The private attributes should only be accessible via methods like get_salary() and set_salary().
-
 class Employee:
     def __init__(self,name,salary):
         self.__name=name
@@ -109,10 +98,7 @@ class Employee:
         return f"Updated Sallary:{self.__salary}"
 
     def get_salary(self):
-        return(f" Name is:{self.__name}\nYour salary is: {self.__salary}")
-                
-
-    
+        return(f" Name is:{self.__name}\nYour salary is: {self.__salary}")           
 
 employee=Employee("Kamran",100)
 print(employee.get_salary())
